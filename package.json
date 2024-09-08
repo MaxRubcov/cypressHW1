@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:mobile:edge": "cypress run --config-file cypress.config.js --browser edge --headed",
+    "cy:mobile:chrome": "cypress run --config-file cypress.config.js --browser chrome --headless",
+    "cy:desktop:edge": "cypress run --config-file cypress1.config.js --browser edge --headless",
+    "cy:desktop:chrome": "cypress run --config-file cypress1.config.js --browser edge --headed"
   },
   "keywords": [],
   "author": "Maxim Rubcov",

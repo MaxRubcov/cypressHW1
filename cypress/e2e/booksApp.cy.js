@@ -5,7 +5,7 @@ describe('тестирование библиотеки', () => {
     cy.visit('/');
   })
 
-  it.only('Авторизация', () => {
+  it('Авторизация', () => {
     cy.login('bropet@mail.ru', 123)
     cy.contains('Добро пожаловать bropet@mail.ru').should('be.visible', true);
   })
@@ -34,20 +34,20 @@ describe('Testing books', () => {
     })
         
   it('Добавлена книга', () =>{
-    cy.createNewBook("Детство", "Лев Толстой")
-    cy.get(".card-title").should("contain", "Детство");
+    cy.createNewBook("Семь сказок", "А.С. Пушкин")
+    cy.get(".card-title").should("contain", "Семь сказок");
     })
   
   it('Книга добавлена в избранное', () =>{
-    cy.contains("Детство").should("be.visible").within(() => cy.get(".card-footer > .btn").click({ force: true }));
+    cy.contains("Семь сказок").should("be.visible").within(() => cy.get(".card-footer > .btn").click({ force: true }));
     cy.get('h4').click();
-    cy.get(".card-title").should("contain", "Детство");
+    cy.get(".card-title").should("contain", "Семь сказок");
   })
 
   it("Удалил из избранного", () => {
     cy.visit("/favorites");
-    cy.contains("Детство").should("be.visible").within(() => cy.get(".card-footer > .btn").click({ force: true }));
-    cy.contains("Детство").should("not.exist");
+    cy.contains("Семь сказок").should("be.visible").within(() => cy.get(".card-footer > .btn").click({ force: true }));
+    cy.contains("Семь сказок").should("not.exist");
   });
   
 })
